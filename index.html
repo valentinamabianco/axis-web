@@ -53,12 +53,14 @@
   <!-- ===== HERO ===== -->
   <section style="padding-top: 100px; background: #fff;">
     <div style="background: #ebf3fd; min-height: 814px; position: relative; overflow: hidden;">
-        <!-- Gradient overlay -->
-        <div style="position: absolute; inset: 0; background: linear-gradient(111.56deg, #ebf3fd 54.66%, rgba(235,243,253,0) 123.83%); z-index: 2; pointer-events: none;"></div>
         <!-- Hero image -->
         <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 820px; overflow: hidden; z-index: 1;">
           <img src="assets/images/hero-bg.jpg" alt="" style="position: absolute; top: 0; height: 100%; width: 132.36%; left: -30.94%; max-width: none; object-fit: cover;">
         </div>
+        <!-- Yellow radial tint centered at top-right -->
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(245,207,61,0.55) 0%, rgba(245,207,61,0.5) 30%, rgba(245,207,61,0) 80%); z-index: 2; pointer-events: none;"></div>
+        <!-- Blue fade from left -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(111.56deg, #ebf3fd 54.66%, rgba(235,243,253,0) 123.83%); z-index: 2; pointer-events: none;"></div>
         <!-- Hero content -->
         <div style="position: relative; z-index: 3; padding: 160px 0 80px 93px; max-width: 620px;">
           <h1 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 60px; line-height: 1.2; color: #01315f; margin-bottom: 24px;">
@@ -78,8 +80,10 @@
   </section>
 
   <!-- ===== POR QUÉ AXIS / VOS MARCÁS EL RITMO ===== -->
-  <section id="nosotros" style="background: #fff; padding: 80px 0;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 64px; align-items: flex-start;">
+  <section id="nosotros" style="background: #fff; padding: 80px 0; position: relative; overflow: hidden;">
+    <!-- Decorative swirl, bottom-right -->
+    <img src="assets/icons/Swirl-1.svg" alt="" aria-hidden="true" style="position: absolute; right: 0px; bottom: 60px; width: 320px; height: auto; pointer-events: none; z-index: 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 64px; align-items: flex-start; position: relative; z-index: 1;">
       <!-- Left: photos -->
       <div style="flex: 1; min-width: 0; position: relative; height: 466px;">
         <!-- Background image 1 -->
@@ -127,11 +131,11 @@
           </div>
           <h3 style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.4; color: #001e40; padding-top: 8px;">Fisioterapia</h3>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 15.5px;">
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Rehabilitación de lesiones</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Ejercicios terapéuticos</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Pre y post operatorios</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Higiene de columna</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Adulto mayor</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Rehabilitación de lesiones</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Ejercicios terapéuticos</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Pre y post operatorios</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Higiene de columna</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f;">Adulto mayor</span></li>
           </ul>
         </div>
 
@@ -142,9 +146,9 @@
           </div>
           <h3 style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.4; color: #001e40; padding-top: 8px;">Entrenamiento</h3>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 15.5px;">
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Entrenamiento personalizado</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Readaptación deportiva</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Gimnasia para el adulto mayor</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Entrenamiento personalizado</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Readaptación deportiva</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f;">Gimnasia para el adulto mayor</span></li>
           </ul>
         </div>
 
@@ -155,11 +159,11 @@
           </div>
           <h3 style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.4; color: #001e40; padding-top: 8px;">Lesiones</h3>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 15.5px;">
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Articulares y degenerativas</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Traumatológicas</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Lesiones deportivas</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Post-quirúrgicas</span></li>
-            <li style="display: flex; gap: 12px; align-items: center;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0;"></span><span style="font-size: 16px; color: #43474f;">Por sobreuso</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Articulares y degenerativas</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Traumatológicas</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Lesiones deportivas</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f; padding-bottom: 14px; border-bottom: 1px solid rgba(21,41,90,0.08);">Post-quirúrgicas</span></li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="width: 6px; height: 6px; background: #f5cf3d; border-radius: 50%; flex-shrink: 0; margin-top: 9px;"></span><span style="flex: 1; font-size: 16px; color: #43474f;">Por sobreuso</span></li>
           </ul>
         </div>
 
@@ -168,8 +172,12 @@
   </section>
 
   <!-- ===== AGENTES FÍSICOS Y ELECTROTERAPIA ===== -->
-  <section style="background: #fff; padding: 80px 0;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 64px; align-items: center;">
+  <section style="background: #fff; padding: 80px 0; position: relative; overflow: hidden;">
+    <!-- Decorative swirl, top-right -->
+    <img src="assets/icons/Swirl_2.svg" alt="" aria-hidden="true" style="position: absolute; right: 0; top: 0; width: 420px; height: auto; pointer-events: none; z-index: 0;">
+    <!-- Decorative swirl, bottom-left -->
+    <img src="assets/icons/Swirl_3.svg" alt="" aria-hidden="true" style="position: absolute; left: 0; bottom: 40px; width: 380px; height: auto; pointer-events: none; z-index: 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 64px; align-items: center; position: relative; z-index: 1;">
 
       <!-- Left: text -->
       <div style="width: 460px; flex-shrink: 0; display: flex; flex-direction: column; gap: 32px;">
@@ -385,8 +393,10 @@
   </section>
 
   <!-- ===== HORARIOS ===== -->
-  <section id="horarios" style="background: #ebf3fc; padding: 80px 0;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+  <section id="horarios" style="background: #ebf3fc; padding: 80px 0; position: relative; overflow: hidden;">
+    <!-- Decorative vertical swirl, right side -->
+    <img src="assets/icons/Swirl_4.svg" alt="" aria-hidden="true" style="position: absolute; right: 0px; top: 50%; transform: translateY(-50%); width: 140px; height: auto; pointer-events: none; z-index: 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1;">
 
       <div style="margin-bottom: 40px;">
         <div style="display: inline-block; margin-bottom: 24px;">
@@ -399,7 +409,7 @@
         <!-- Schedule table -->
         <div style="background: #fff; border: 1px solid rgba(195,198,209,0.3); border-radius: 20px; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05); overflow: hidden;">
           <!-- Day headers -->
-          <div style="display: grid; grid-template-columns: 52px repeat(6, 1fr); padding: 20px 24px 16px; border-bottom: 1px solid rgba(21,41,90,0.06);">
+          <div style="display: grid; grid-template-columns: 52px repeat(6, 1fr); padding: 20px 24px 16px;">
             <div></div>
             <div style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px; color: #15295a; text-align: center;">Lunes</div>
             <div style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px; color: #15295a; text-align: center;">Martes</div>
@@ -409,82 +419,102 @@
             <div style="font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px; color: #15295a; text-align: center;">Sábado</div>
           </div>
           <!-- Time grid -->
-          <div style="padding: 0 24px 20px; position: relative;">
-            <div style="display: grid; grid-template-columns: 52px repeat(6, 1fr); grid-template-rows: repeat(6, 44px); margin-top: 8px; gap: 0;">
-              <!-- Time labels -->
-              <div style="grid-column: 1; grid-row: 1; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">08:00</span></div>
-              <div style="grid-column: 1; grid-row: 2; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">10:00</span></div>
-              <div style="grid-column: 1; grid-row: 3; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">12:00</span></div>
-              <div style="grid-column: 1; grid-row: 4; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">14:00</span></div>
-              <div style="grid-column: 1; grid-row: 5; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">16:00</span></div>
-              <div style="grid-column: 1; grid-row: 6; display: flex; align-items: flex-start; padding-top: 4px;"><span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">18:00</span></div>
+          <div style="padding: 20px 24px 40px;">
+            <div style="position: relative; height: 264px;">
 
-              <!-- Grid cells (background lines) -->
-              <div style="grid-column: 2 / 8; grid-row: 1; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-              <div style="grid-column: 2 / 8; grid-row: 2; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-              <div style="grid-column: 2 / 8; grid-row: 3; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-              <div style="grid-column: 2 / 8; grid-row: 4; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-              <div style="grid-column: 2 / 8; grid-row: 5; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-              <div style="grid-column: 2 / 8; grid-row: 6; border-top: 1px solid rgba(21,41,90,0.06);"></div>
-
-              <!-- Lunes: 08:00-12:00 only -->
-              <div style="grid-column: 2; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
-                </div>
+              <!-- Tick rows: label + gridline are flex siblings centered on the same baseline -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">08:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
               </div>
-
-              <!-- Martes: 08:00-12:00 -->
-              <div style="grid-column: 3; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
-                </div>
+              <div style="position: absolute; top: 44px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">10:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
               </div>
-              <!-- Martes: 15:30-20:00 -->
-              <div style="grid-column: 3; grid-row: 4 / 7; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">15:30 - 20:00</span>
-                </div>
+              <div style="position: absolute; top: 88px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">12:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
+              </div>
+              <div style="position: absolute; top: 132px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">14:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
+              </div>
+              <div style="position: absolute; top: 176px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">16:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
+              </div>
+              <div style="position: absolute; top: 220px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">18:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
+              </div>
+              <div style="position: absolute; top: 264px; left: 0; right: 0; height: 0; display: flex; align-items: center;">
+                <span style="width: 52px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(21,41,90,0.62);">20:00</span>
+                <div style="flex: 1; height: 1px; background: rgba(21,41,90,0.06);"></div>
               </div>
 
-              <!-- Miércoles: 08:00-12:00 only -->
-              <div style="grid-column: 4; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
-                </div>
-              </div>
+              <!-- Block layer: schedule blocks in a 6-row grid (each row = 2h) -->
+              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 52px repeat(6, 1fr); grid-template-rows: repeat(6, 44px); gap: 0;">
 
-              <!-- Jueves: 08:00-12:00 -->
-              <div style="grid-column: 5; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                <!-- Lunes: 08:00-12:00 -->
+                <div style="grid-column: 2; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
                 </div>
-              </div>
-              <!-- Jueves: 14:00-20:00 -->
-              <div style="grid-column: 5; grid-row: 4 / 7; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">14:00 - 20:00</span>
-                </div>
-              </div>
 
-              <!-- Viernes: 08:00-12:00 -->
-              <div style="grid-column: 6; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                <!-- Martes: 08:00-12:00 -->
+                <div style="grid-column: 3; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
                 </div>
-              </div>
-              <!-- Viernes: 14:00-16:00 -->
-              <div style="grid-column: 6; grid-row: 4; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">14:00 - 16:00</span>
+                <!-- Martes: 15:30-20:00 -->
+                <div style="grid-column: 3; grid-row: 4 / 7; padding: 24px 4px 2px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">15:30 - 20:00</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Sábado: 08:00-12:00 only -->
-              <div style="grid-column: 7; grid-row: 1 / 3; padding: 2px 4px;">
-                <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                <!-- Miércoles: 08:00-12:00 -->
+                <div style="grid-column: 4; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
                 </div>
+
+                <!-- Jueves: 08:00-12:00 -->
+                <div style="grid-column: 5; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
+                </div>
+                <!-- Jueves: 14:00-20:00 -->
+                <div style="grid-column: 5; grid-row: 4 / 7; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">14:00 - 20:00</span>
+                  </div>
+                </div>
+
+                <!-- Viernes: 08:00-12:00 -->
+                <div style="grid-column: 6; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
+                </div>
+                <!-- Viernes: 14:00-16:00 -->
+                <div style="grid-column: 6; grid-row: 4; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">14:00 - 16:00</span>
+                  </div>
+                </div>
+
+                <!-- Sábado: 08:00-12:00 -->
+                <div style="grid-column: 7; grid-row: 1 / 3; padding: 2px 4px;">
+                  <div style="background: rgba(245,207,61,0.5); border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 11px; color: #15295a; text-align: center; line-height: 1.3;">08:00 - 12:00</span>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -495,8 +525,10 @@
   </section>
 
   <!-- ===== ESCRIBINOS ===== -->
-  <section id="contacto" style="background: #fff; padding: 80px 0;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 80px;">
+  <section id="contacto" style="background: #fff; padding: 80px 0; position: relative; overflow: hidden;">
+    <!-- Decorative swirl, bottom-center -->
+    <img src="assets/icons/Swirl_5.svg" alt="" aria-hidden="true" style="position: absolute; left: 50%; bottom: -20px; transform: translateX(-20%); width: 520px; height: auto; pointer-events: none; z-index: 0;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 80px; position: relative; z-index: 1;">
 
       <!-- Left: Image -->
       <div style="flex: 1; min-width: 0;">
@@ -557,44 +589,43 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer style="background: #001E40; border-top: 1px solid rgba(195,198,209,0.3); padding: 64px 0 32px; border-top-left-radius: 40px; border-top-right-radius: 40px;">
+  <footer style="background: #001E40; border-top: 1px solid rgba(195,198,209,0.3); padding: 40px 0 20px; border-top-left-radius: 40px; border-top-right-radius: 40px;">
     <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
       <!-- Top row: logo + columns -->
-      <div style="display: flex; gap: 80px; align-items: flex-start; margin-bottom: 56px;">
-        <!-- Logo -->
-        <div style="flex-shrink: 0;">
-          <img src="assets/icons/Logo_white.svg" alt="Axis" style="height: 48px; width: 115px; object-fit: contain; object-position: left; background-color: #001E40;">
+      <div style="display: flex; gap: 80px; align-items: flex-start; margin-bottom: 32px;">
+        <!-- Logo + social column -->
+        <div style="flex-shrink: 0; display: flex; flex-direction: column; gap: 24px;">
+          <img src="assets/icons/Logo_white.svg" alt="Axis" style="height: 80px; width: auto; object-fit: contain; object-position: left;">
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <a href="https://instagram.com/axis.uy" target="_blank" rel="noopener" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+              <img src="assets/icons/icon-instagram.svg" alt="Instagram" style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
+            </a>
+            <a href="https://wa.me/59899342137" target="_blank" rel="noopener" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+              <img src="assets/icons/icon-wa-link.svg" alt="WhatsApp" style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
+            </a>
+          </div>
         </div>
         <!-- SITIO column -->
-        <div style="display: flex; flex-direction: column; gap: 16px; min-width: 160px;">
-          <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #D5E3FF; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 4px;">SITIO</p>
-          <a href="#nosotros" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Nosotros</a>
-          <a href="#servicios" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Servicios</a>
-          <a href="#metodologia" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Metodología</a>
-          <a href="#equipo" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Equipo</a>
-          <a href="#horarios" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Horarios</a>
-          <a href="#contacto" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Contacto</a>
+        <div style="display: flex; flex-direction: column; gap: 22px; min-width: 180px; margin-left: auto;">
+          <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #D5E3FF; text-transform: uppercase; letter-spacing: 1.2px;">SITIO</p>
+          <a href="#nosotros" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Nosotros</a>
+          <a href="#servicios" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Servicios</a>
+          <a href="#metodologia" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Metodología</a>
+          <a href="#horarios" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Horarios</a>
+          <a href="#contacto" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Contacto</a>
         </div>
         <!-- LEGAL column -->
-        <div style="display: flex; flex-direction: column; gap: 16px; min-width: 160px;">
-          <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #D5E3FF; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 4px;">LEGAL</p>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Política de privacidad</a>
-          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #8094B3; text-decoration: none; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Términos de uso</a>
-        </div>
-        <!-- Social icons (pushed to right) -->
-        <div style="margin-left: auto; display: flex; gap: 16px; align-items: center;">
-          <a href="https://instagram.com/axis.uy" target="_blank" rel="noopener" style="background: #fff; border: 1px solid rgba(21,41,90,0.12); border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,30,64,0.1)'" onmouseout="this.style.boxShadow='none'">
-            <img src="assets/icons/icon-instagram.svg" alt="Instagram" style="width: 20px; height: 20px;">
-          </a>
-          <a href="https://wa.me/549898168225" target="_blank" rel="noopener" style="background: #fff; border: 1px solid rgba(21,41,90,0.12); border-radius: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,30,64,0.1)'" onmouseout="this.style.boxShadow='none'">
-            <img src="assets/icons/icon-wa-link.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
-          </a>
+        <div style="display: flex; flex-direction: column; gap: 22px; min-width: 220px;">
+          <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px; color: #D5E3FF; text-transform: uppercase; letter-spacing: 1.2px;">LEGAL</p>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Política de Privacidad</a>
+          <a href="#" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #8094B3; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Términos del Servicio</a>
         </div>
       </div>
-      <!-- Bottom bar -->
-      <div style="border-top: 1px solid rgba(195,198,209,0.4); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+    </div>
+    <!-- Bottom bar (full width line) -->
+    <div style="border-top: 1px solid rgba(195,198,209,0.2); padding-top: 24px;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
         <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: #8094B3;">© 2026 Axis Clínica de Rehabilitación y Movimiento.</p>
-        <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: #8094B3;">La Gaceta 1283 bis, Montevideo, Uruguay</p>
       </div>
     </div>
   </footer>
