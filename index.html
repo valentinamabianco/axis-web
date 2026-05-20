@@ -26,6 +26,357 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: #43474f; background: #fff; overflow-x: hidden; }
     html { scroll-behavior: smooth; }
+
+    /* Mobile-only and desktop-only toggles */
+    .mob-only { display: none; }
+    .mob-hamburger { display: none; }
+    .mob-overlay { display: none; }
+    .mob-hamburger span,
+    .mob-hamburger span::before,
+    .mob-hamburger span::after {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  background 0.2s ease,
+                  top 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @media (max-width: 767px) {
+      /* === NAVBAR === */
+      header { height: 80px !important; }
+      header nav { padding: 0 24px !important; gap: 0 !important; }
+      header nav > a:first-child img { height: 43px !important; width: 102px !important; }
+      header nav ul { display: none !important; }
+      header nav > a[href="#contacto"] { display: none !important; }
+      .mob-hamburger { display: flex !important; align-items: center; justify-content: center; margin-left: auto; background: transparent; border: 0; cursor: pointer; padding: 8px; width: 44px; height: 44px; }
+      .mob-hamburger span { display: block; width: 22px; height: 3px; background: #F5CF3D; position: relative; }
+      .mob-hamburger span::before, .mob-hamburger span::after { content: ""; position: absolute; left: 0; width: 22px; height: 3px; background: #F5CF3D; }
+      .mob-hamburger span::before { top: -7px; }
+      .mob-hamburger span::after { top: 7px; }
+      .mob-overlay {
+        display: flex !important;
+        position: fixed !important;
+        inset: 0;
+        z-index: 100;
+        background: #f7f9fb;
+        padding: 24px 24px 40px;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        pointer-events: none;
+        transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0.4s;
+      }
+      .mob-overlay.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0s;
+      }
+      .mob-overlay-head { display: flex; align-items: center; justify-content: space-between; height: 56px; margin-bottom: 24px; }
+      .mob-overlay-head img { height: 43px; width: 102px; object-fit: cover; object-position: center; }
+      .mob-overlay .mob-close { background: transparent; border: 0; font-size: 28px; color: #01315f; cursor: pointer; width: 44px; height: 44px; line-height: 1; transition: transform 0.25s ease, color 0.2s ease; }
+      .mob-overlay .mob-close:hover { transform: rotate(90deg); }
+      .mob-overlay a {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #01315f;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding: 18px 4px;
+        border-bottom: 1px solid rgba(1,49,95,0.08);
+        text-decoration: none;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .mob-overlay.open a { opacity: 1; transform: translateY(0); }
+      .mob-overlay.open a:nth-of-type(1) { transition-delay: 0.12s; }
+      .mob-overlay.open a:nth-of-type(2) { transition-delay: 0.17s; }
+      .mob-overlay.open a:nth-of-type(3) { transition-delay: 0.22s; }
+      .mob-overlay.open a:nth-of-type(4) { transition-delay: 0.27s; }
+      .mob-overlay.open a:nth-of-type(5) { transition-delay: 0.32s; }
+      .mob-overlay.open a:nth-of-type(6) { transition-delay: 0.37s; }
+      .mob-overlay.open a:nth-of-type(7) { transition-delay: 0.44s; }
+      .mob-overlay a.cta { margin-top: 28px; background: #f5cf3d; color: #001e40; border-radius: 9999px; padding: 16px 24px; border-bottom: 0; text-align: center; font-weight: 600; text-transform: none; letter-spacing: 0; }
+
+      /* === HERO === */
+      #hero { padding-top: 80px !important; background: #fff !important; }
+      #hero > div { background: #ebf3fd !important; min-height: 0 !important; padding-bottom: 24px !important; }
+      #hero > div > div:nth-child(1) { position: relative !important; width: 100% !important; height: 266px !important; right: auto !important; top: auto !important; bottom: auto !important; }
+      #hero > div > div:nth-child(1) img { left: 0 !important; width: 100% !important; max-width: 100% !important; height: 100% !important; object-position: center right !important; }
+      #hero > div > div:nth-child(2) { background: radial-gradient(circle at top right, rgba(245,207,61,0.55) 0%, rgba(245,207,61,0.45) 28%, rgba(245,207,61,0) 70%) !important; height: 266px !important; bottom: auto !important; }
+      #hero > div > div:nth-child(3) { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 266px !important; bottom: auto !important; background: linear-gradient(107deg, #ebf3fd 28%, rgba(235,243,253,0) 95%) !important; display: block !important; z-index: 2 !important; pointer-events: none !important; }
+      #hero > div > div:nth-child(4) { padding: 24px 20px 8px !important; max-width: 100% !important; }
+      #hero h1 { font-size: 26px !important; line-height: 1.2 !important; margin-bottom: 12px !important; color: #01315f !important; }
+      #hero h1 span img { bottom: -6px !important; height: 11px !important; }
+      #hero > div > div:nth-child(4) > p { font-size: 14px !important; line-height: 1.45 !important; color: #01315f !important; max-width: 100% !important; margin-bottom: 22px !important; }
+      #hero > div > div:nth-child(4) > div { gap: 12px !important; flex-wrap: wrap !important; }
+      #hero > div > div:nth-child(4) > div a { padding: 12px 22px !important; font-size: 12px !important; border-width: 1.5px !important; }
+      #hero > div > div:nth-child(4) > div a:nth-child(2) { padding: 11px 22px !important; }
+
+      /* === POR QUÉ AXIS === */
+      #nosotros { padding: 56px 0 64px !important; }
+      #nosotros > img { display: none !important; }
+      #nosotros > div { flex-direction: column !important; gap: 28px !important; padding: 0 24px !important; align-items: stretch !important; }
+      #nosotros > div > div:first-child { order: 2 !important; height: auto !important; flex: none !important; width: 100% !important; min-height: 0 !important; }
+      #nosotros > div > div:first-child > div:nth-child(1),
+      #nosotros > div > div:first-child > div:nth-child(2) { display: none !important; }
+      #nosotros > div > div:first-child > div:nth-child(3) { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 251px !important; border-radius: 10px !important; box-shadow: none !important; }
+      #nosotros > div > div:last-child { order: 1 !important; width: 100% !important; gap: 20px !important; flex-shrink: 1 !important; }
+      #nosotros > div > div:last-child > div p { font-size: 15px !important; letter-spacing: 0.3px !important; margin-top: 0 !important; }
+      #nosotros > div > div:last-child > div div { width: 51px !important; height: 3px !important; }
+      #nosotros > div > div:last-child h2 { font-size: 28px !important; line-height: 1.2 !important; }
+      #nosotros > div > div:last-child > p { font-size: 15px !important; line-height: 1.65 !important; color: #43474f !important; }
+
+      /* === SERVICIOS === */
+      #servicios { padding: 56px 0 !important; }
+      #servicios > div { padding: 0 16px !important; gap: 32px !important; }
+      #servicios > div > div:first-child { gap: 12px !important; }
+      #servicios > div > div:first-child h2 { font-size: 42px !important; letter-spacing: -0.96px !important; line-height: 1.1 !important; }
+      #servicios > div > div:first-child p { font-size: 15px !important; max-width: 260px !important; line-height: 1.55 !important; }
+      #servicios > div > div:last-child { grid-template-columns: 1fr !important; gap: 16px !important; }
+      #servicios > div > div:last-child > div { padding: 32px !important; gap: 18px !important; border-radius: 32px !important; min-height: 390px !important; }
+      #servicios > div > div:last-child h3 { font-size: 24px !important; padding-top: 4px !important; }
+      #servicios > div > div:last-child ul { gap: 8px !important; }
+      #servicios > div > div:last-child ul li > span:last-child { font-size: 15px !important; padding-bottom: 8px !important; }
+
+      /* === AGENTES FÍSICOS === */
+      #agentes { padding: 56px 0 !important; }
+      #agentes > img { display: none !important; }
+      #agentes > div { flex-direction: column !important; gap: 24px !important; padding: 0 16px !important; align-items: stretch !important; }
+      #agentes > div > div:first-child { width: 100% !important; flex: none !important; gap: 12px !important; }
+      #agentes > div > div:first-child h2 { font-size: 34px !important; line-height: 1.1 !important; letter-spacing: -0.8px !important; }
+      #agentes > div > div:first-child p { font-size: 15px !important; line-height: 1.55 !important; }
+      #agentes > div > div:last-child { flex-direction: column !important; gap: 16px !important; }
+      #agentes > div > div:last-child > div:first-child { flex-direction: column !important; gap: 16px !important; }
+      #agentes > div > div:last-child > div:first-child > div { height: 202px !important; border-radius: 10px !important; }
+      #agentes > div > div:last-child > div:last-child { height: 202px !important; align-self: stretch !important; border-radius: 10px !important; }
+      /* Image files already include the yellow ribbon label baked in — hide the DOM label to avoid duplication. */
+      #agentes .agente-label { display: none !important; }
+
+      /* === CÓMO TRABAJAMOS === */
+      #metodologia { padding: 56px 0 !important; }
+      #metodologia > div { flex-direction: column-reverse !important; gap: 28px !important; padding: 0 16px !important; align-items: stretch !important; }
+      #metodologia > div > div:last-child { width: 100% !important; gap: 20px !important; }
+      #metodologia > div > div:last-child > div:first-child p { font-size: 15px !important; }
+      #metodologia > div > div:last-child > div:first-child div { width: 51px !important; height: 3px !important; }
+      #metodologia > div > div:last-child h2 { font-size: 27px !important; line-height: 1.3 !important; }
+      #metodologia > div > div:last-child p { font-size: 15px !important; line-height: 1.65 !important; }
+      #metodologia > div > div:last-child > div:last-child > div { height: 24px !important; }
+      #metodologia > div > div:first-child { display: flex !important; flex-direction: column !important; gap: 16px !important; height: auto !important; flex: none !important; }
+      #metodologia > div > div:first-child > div { display: contents !important; padding: 0 !important; }
+      #metodologia .card-01 { order: 1 !important; height: 192px !important; padding: 32px !important; border-radius: 10px !important; }
+      #metodologia .card-02 { order: 2 !important; height: 192px !important; padding: 32px 20px !important; border-radius: 10px !important; }
+      #metodologia .card-03 { order: 3 !important; height: 256px !important; border-radius: 10px !important; }
+      #metodologia .card-04 { order: 4 !important; height: 256px !important; border-radius: 10px !important; }
+      #metodologia .card-01 p:nth-child(1),
+      #metodologia .card-02 p:nth-child(1) { font-size: 32px !important; }
+      #metodologia .card-01 p:nth-child(2) { font-size: 22px !important; margin-bottom: 4px !important; }
+      #metodologia .card-02 p:nth-child(2) { font-size: 23px !important; margin-bottom: 4px !important; }
+      #metodologia .card-03 div p:nth-child(1),
+      #metodologia .card-04 div p:nth-child(1) { font-size: 32px !important; }
+      #metodologia .card-03 div p:nth-child(2),
+      #metodologia .card-04 div p:nth-child(2) { font-size: 23px !important; }
+      #metodologia .card-01 p:last-child,
+      #metodologia .card-02 p:last-child,
+      #metodologia .card-03 div p:last-child,
+      #metodologia .card-04 div p:last-child { font-size: 14px !important; line-height: 1.2 !important; }
+      /* === CTA BANNER === */
+      #cta { padding: 0 0 56px !important; }
+      #cta > div { padding: 32px 28px 40px !important; grid-template-columns: 1fr !important; gap: 20px !important; border-radius: 0 !important; min-height: 0 !important; }
+      #cta > div > div:nth-child(2) { display: flex !important; justify-content: flex-start !important; }
+      #cta h2 { font-size: 30px !important; letter-spacing: -1px !important; line-height: 1.2 !important; margin-bottom: 8px !important; }
+      #cta > div > div:first-child p { font-size: 14px !important; }
+      #cta a { font-size: 13px !important; padding: 13px 22px !important; }
+
+      /* === EQUIPO === */
+      #equipo { padding: 64px 0 !important; }
+      #equipo > div { padding: 0 16px !important; gap: 36px !important; }
+      #equipo > div > div:first-child { gap: 18px !important; }
+      #equipo > div > div:first-child h2 { font-size: 38px !important; letter-spacing: -0.8px !important; line-height: 1.15 !important; }
+      #equipo > div > div:first-child p { font-size: 15px !important; line-height: 1.55 !important; }
+      #equipo > div > div:last-child { grid-template-columns: 1fr !important; gap: 16px !important; }
+      #equipo .team-card { padding: 24px 20px !important; gap: 16px !important; border-radius: 10px !important; }
+      #equipo .team-card > div:first-child { width: 134px !important; height: 134px !important; border-width: 4px !important; flex-shrink: 0 !important; }
+      #equipo .team-card > div:last-child { gap: 8px !important; min-width: 0 !important; }
+      #equipo .team-card h3 { font-size: 19px !important; line-height: 1.2 !important; }
+      #equipo .team-card p { font-size: 11px !important; letter-spacing: 0.4px !important; line-height: 1.4 !important; }
+
+      /* === TESTIMONIOS === */
+      #testimonios { padding: 56px 0 !important; }
+      #testimonios > div { padding: 0 16px !important; gap: 24px !important; }
+      #testimonios > div > div:first-child { display: flex !important; flex-direction: column !important; }
+      #testimonios > div > div:first-child > p { font-size: 20px !important; }
+      #testimonios > div > div:first-child > div { width: 85px !important; height: 3px !important; margin-bottom: 22px !important; }
+      #testimonios > div > div:first-child h2 { font-size: 38px !important; text-align: left !important; letter-spacing: -0.96px !important; line-height: 1.15 !important; }
+      #testimonios > div > div:last-child { grid-template-columns: 1fr !important; gap: 16px !important; }
+      #testimonios > div > div:last-child > div { padding: 24px 32px !important; border-radius: 10px !important; }
+      #testimonios > div > div:last-child > div > div:first-child { font-size: 72px !important; margin-bottom: 8px !important; }
+      #testimonios > div > div:last-child > div p { font-size: 15px !important; line-height: 1.55 !important; }
+
+      /* === HORARIOS === */
+      #horarios { padding: 56px 0 !important; }
+      #horarios > img { display: none !important; }
+      #horarios > div { padding: 0 16px !important; }
+      #horarios > div > div:first-child { margin-bottom: 28px !important; }
+      #horarios > div > div:first-child > div p { font-size: 15px !important; }
+      #horarios > div > div:first-child > div div { width: 85px !important; height: 3px !important; }
+      #horarios h2 { font-size: 38px !important; letter-spacing: -0.96px !important; line-height: 1.15 !important; }
+      .desk-schedule { display: none !important; }
+      .mob-schedule { display: block !important; background: #fff; border: 1px solid rgba(195,198,209,0.3); border-radius: 16px; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05); padding: 16px 22px; }
+      .mob-schedule .row { display: flex; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(21,41,90,0.08); gap: 12px; }
+      .mob-schedule .row:last-child { border-bottom: 0; }
+      .mob-schedule .day { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 16px; color: #15295a; width: 90px; flex-shrink: 0; }
+      .mob-schedule .hours { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; color: rgba(21,41,90,0.62); flex: 1; }
+
+      /* === ESCRIBINOS === */
+      #contacto { padding: 56px 0 !important; }
+      #contacto > img { display: none !important; }
+      #contacto > div { flex-direction: column-reverse !important; gap: 32px !important; padding: 0 16px !important; }
+      #contacto > div > div:first-child { width: 100% !important; flex: none !important; }
+      #contacto > div > div:first-child > div { aspect-ratio: auto !important; height: 386px !important; border-radius: 10px !important; }
+      #contacto > div > div:last-child { width: 100% !important; flex-shrink: 1 !important; }
+      #contacto h2 { font-size: 38px !important; margin-top: 0 !important; margin-bottom: 10px !important; line-height: 1.1 !important; }
+      #contacto > div > div:last-child > p { font-size: 14px !important; line-height: 1.4 !important; margin-bottom: 18px !important; }
+      #contacto > div > div:last-child > div { gap: 10px !important; }
+      #contacto a { padding: 12px 18px !important; border-radius: 10px !important; gap: 12px !important; }
+      #contacto a > div:first-child { width: 40px !important; height: 40px !important; border-radius: 12px !important; }
+      #contacto a > div p:first-child { font-size: 11px !important; letter-spacing: 1.2px !important; margin-bottom: 1px !important; }
+      #contacto a > div p:last-child { font-size: 14px !important; }
+      #contacto a > span { font-size: 17px !important; }
+
+      /* === FOOTER === */
+      footer { padding: 36px 0 16px !important; border-top-left-radius: 24px !important; border-top-right-radius: 24px !important; }
+      footer > div:first-child { padding: 0 24px !important; }
+      footer > div:first-child > div { flex-direction: column !important; gap: 24px !important; margin-bottom: 24px !important; align-items: stretch !important; }
+      footer > div:first-child > div > div:first-child { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; width: 100% !important; gap: 16px !important; order: 2 !important; padding-top: 8px !important; border-top: 1px solid rgba(213,227,255,0.1); }
+      footer > div:first-child > div > div:first-child img { height: 56px !important; }
+      footer > div:first-child > div > div:nth-child(2) { margin-left: 0 !important; width: 100% !important; gap: 12px !important; min-width: 0 !important; order: 0 !important; }
+      footer > div:first-child > div > div:last-child { width: 100% !important; gap: 12px !important; min-width: 0 !important; order: 1 !important; padding-top: 8px !important; }
+      footer > div:first-child > div > div:nth-child(2) > p,
+      footer > div:first-child > div > div:last-child > p { font-size: 14px !important; letter-spacing: 1.2px !important; }
+      footer > div:first-child > div > div:nth-child(2) a,
+      footer > div:first-child > div > div:last-child a { font-size: 16px !important; }
+      footer > div:last-child { padding-top: 10px !important; }
+      footer > div:last-child > div { padding: 0 24px !important; }
+      footer > div:last-child p { font-size: 12px !important; color: rgba(213,227,255,0.4) !important; }
+    }
+
+    /* ============================================================
+       Animations
+       ============================================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      /* --- Hero entrance: staggered fade + slide-up on load --- */
+      @keyframes axisFadeUp {
+        from { opacity: 0; transform: translateY(36px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      #hero h1,
+      #hero > div > div:nth-child(4) > p,
+      #hero > div > div:nth-child(4) > div {
+        animation: axisFadeUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      #hero h1 { animation-delay: 0.15s; }
+      #hero > div > div:nth-child(4) > p   { animation-delay: 0.40s; }
+      #hero > div > div:nth-child(4) > div { animation-delay: 0.65s; }
+
+      /* --- Scroll reveal: sections fade + slide-up as they enter --- */
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- Accent underline: animated "drawing" left-to-right --- */
+      .js .reveal .accent-underline {
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+        will-change: transform;
+      }
+      .js .reveal.is-visible .accent-underline {
+        transform: scaleX(1);
+      }
+
+      /* --- Hover lift: cards (service, team, testimonial, contact) --- */
+      #servicios > div > div:last-child > div,
+      #equipo .team-card,
+      #testimonios > div > div:last-child > div,
+      #contacto a {
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @media (hover: hover) {
+        #servicios > div > div:last-child > div:hover,
+        #equipo .team-card:hover,
+        #testimonios > div > div:last-child > div:hover,
+        #contacto a:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 24px 56px -16px rgba(0,30,64,0.22);
+        }
+        /* Methodology image cards lift too */
+        #metodologia .card-01:hover,
+        #metodologia .card-02:hover,
+        #metodologia .card-03:hover,
+        #metodologia .card-04:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 48px -16px rgba(0,30,64,0.20);
+        }
+        #metodologia .card-01,
+        #metodologia .card-02,
+        #metodologia .card-03,
+        #metodologia .card-04 {
+          transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+      }
+
+      /* --- Hover lift: buttons --- */
+      #hero a, #cta a, header nav > a[href="#contacto"] {
+        transition: background 0.25s, color 0.25s, transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      @media (hover: hover) {
+        #hero a:hover, #cta a:hover, header nav > a[href="#contacto"]:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 24px -8px rgba(0,30,64,0.25);
+        }
+      }
+
+      /* --- Decorative looping: slow rotation on swirl SVGs --- */
+      @keyframes axisSpinSlow {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      #nosotros > img[src*="Swirl"],
+      #agentes > img[src*="Swirl"],
+      #horarios > img[src*="Swirl"],
+      #contacto > img[src*="Swirl"] {
+        transform-origin: center center;
+        animation: axisSpinSlow 60s linear infinite;
+      }
+    }
+
+    /* Respect users who request less motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -47,11 +398,27 @@
       <a href="#contacto" style="margin-left: auto; flex-shrink: 0; background: #f5cf3d; color: #001e40; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 9999px; text-decoration: none; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='#e8c030'" onmouseout="this.style.background='#f5cf3d'">
         Reservar Tu Lugar
       </a>
+      <button class="mob-hamburger" id="mobHamburger" aria-label="Abrir menú" aria-controls="mobOverlay" aria-expanded="false"><span></span></button>
     </nav>
   </header>
 
+  <!-- ===== MOBILE MENU OVERLAY ===== -->
+  <div class="mob-overlay" id="mobOverlay" role="dialog" aria-modal="true" aria-label="Menú principal">
+    <div class="mob-overlay-head">
+      <img src="assets/images/logo.png" alt="Axis">
+      <button class="mob-close" id="mobClose" aria-label="Cerrar menú">×</button>
+    </div>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="cta">Reservar Tu Lugar</a>
+  </div>
+
   <!-- ===== HERO ===== -->
-  <section style="padding-top: 100px; background: #fff;">
+  <section id="hero" style="padding-top: 100px; background: #fff;">
     <div style="background: #ebf3fd; min-height: 814px; position: relative; overflow: hidden;">
         <!-- Hero image -->
         <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 820px; overflow: hidden; z-index: 1;">
@@ -101,7 +468,7 @@
       <div style="width: 584px; flex-shrink: 0; display: grid; gap: 32px;">
         <div style="display: inline-block;">
           <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; color: #43474f; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 40px;">Por Qué Axis</p>
-          <div style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
+          <div class="accent-underline" style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
         </div>
         <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.3; color: #001e40;">Vos marcás el ritmo</h2>
         <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.625; color: #43474f;">
@@ -172,7 +539,7 @@
   </section>
 
   <!-- ===== AGENTES FÍSICOS Y ELECTROTERAPIA ===== -->
-  <section style="background: #fff; padding: 80px 0; position: relative; overflow: hidden;">
+  <section id="agentes" style="background: #fff; padding: 80px 0; position: relative; overflow: hidden;">
     <!-- Decorative swirl, top-right -->
     <img src="assets/icons/Swirl_2.svg" alt="" aria-hidden="true" style="position: absolute; right: 0; top: 0; width: 420px; height: auto; pointer-events: none; z-index: 0;">
     <!-- Decorative swirl, bottom-left -->
@@ -191,16 +558,19 @@
       <div style="flex: 1; min-width: 0; display: flex; gap: 16px; align-items: stretch;">
         <!-- Two stacked images -->
         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
-          <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0;">
+          <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0; position: relative;">
             <img src="assets/images/Tens_image.jpg" alt="Electroterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <span class="agente-label mob-only">Tens</span>
           </div>
-          <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0;">
+          <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0; position: relative;">
             <img src="assets/images/Ultra_image.jpg" alt="Ultrasonido terapéutico" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <span class="agente-label mob-only">Ultrasonido</span>
           </div>
         </div>
         <!-- One large image -->
-        <div style="flex: 1; border-radius: 16px; overflow: hidden; height: 300px; align-self: center;">
+        <div style="flex: 1; border-radius: 16px; overflow: hidden; height: 300px; align-self: center; position: relative;">
           <img src="assets/images/Magneto_image.jpg" alt="Magnetoterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+          <span class="agente-label mob-only">Magnetoterapia</span>
         </div>
       </div>
 
@@ -217,7 +587,7 @@
         <!-- Col 1: starts 48px higher -->
         <div style="display: flex; flex-direction: column; gap: 16px; padding-bottom: 48px;">
           <!-- Card 03 (image with overlay) -->
-          <div style="height: 256px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 1px 2px rgba(0,0,0,0.05); flex-shrink: 0;">
+          <div class="card-03" style="height: 256px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 1px 2px rgba(0,0,0,0.05); flex-shrink: 0;">
             <img src="assets/images/process-03.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom;">
             <div style="position: absolute; bottom: 147px; left: 20px; right: 20px;">
               <p style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.2; color: #001e40;">03</p>
@@ -228,7 +598,7 @@
             </div>
           </div>
           <!-- Card 02 (blue bg) -->
-          <div style="background: #ebf3fc; border-radius: 24px; padding: 32px 20px; height: 192px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0;">
+          <div class="card-02" style="background: #ebf3fc; border-radius: 24px; padding: 32px 20px; height: 192px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0;">
             <p style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.2; color: #24667f;">02</p>
             <p style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.2; color: #24667f; margin-bottom: 8px;">Plan Personalizado</p>
             <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.2; color: #24667f;">Diseñamos un plan a tu medida, con objetivos claros y una progresión adaptable.</p>
@@ -238,13 +608,13 @@
         <!-- Col 2: starts 48px lower -->
         <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 48px;">
           <!-- Card 01 (blue bg) -->
-          <div style="background: #ebf3fc; border-radius: 20px; padding: 32px; height: 192px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0;">
+          <div class="card-01" style="background: #ebf3fc; border-radius: 20px; padding: 32px; height: 192px; display: flex; flex-direction: column; justify-content: flex-end; flex-shrink: 0;">
             <p style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.2; color: #24667f;">01</p>
             <p style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.2; color: #24667f; margin-bottom: 8px;">Evaluación</p>
             <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px; line-height: 1.2; color: #24667f;">Escuchamos tu historia, evaluamos el cuerpo en movimiento y definimos juntos el punto de partida.</p>
           </div>
           <!-- Card 04 (image with overlay) -->
-          <div style="height: 256px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 1px 2px rgba(0,0,0,0.05); flex-shrink: 0;">
+          <div class="card-04" style="height: 256px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 1px 2px rgba(0,0,0,0.05); flex-shrink: 0;">
             <img src="assets/images/process-04.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom;">
             <div style="position: absolute; bottom: 147px; left: 20px; right: 20px;">
               <p style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.2; color: #001e40;">04</p>
@@ -262,7 +632,7 @@
       <div style="width: 584px; flex-shrink: 0; display: flex; flex-direction: column; gap: 32px;">
         <div>
           <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; color: #43474f; text-transform: uppercase; letter-spacing: 0.5px;">Cómo trabajamos</p>
-          <div style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
+          <div class="accent-underline" style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
         </div>
         <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.4; color: #001e40;">El movimiento como herramienta.</h2>
         <div style="display: flex; flex-direction: column; gap: 0;">
@@ -280,7 +650,7 @@
   </section>
 
   <!-- ===== CTA BANNER ===== -->
-  <section style="padding: 0 52px 80px;">
+  <section id="cta" style="padding: 0 52px 80px;">
     <div style="background: #f5cf3d; border-radius: 20px; padding: 40px 60px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: center; position: relative; overflow: hidden; min-height: 160px;">
       <!-- Blob decoration -->
       <div style="position: absolute; right: -60px; bottom: -80px; width: 320px; height: 366px; opacity: 0.18; pointer-events: none;">
@@ -314,7 +684,7 @@
 
         <!-- Sebastián -->
         <a href="https://uy.linkedin.com/in/sebastian-radiccioni">
-          <div style="background: #fff; border-radius: 20px; padding: 32px; display: flex; gap: 32px; align-items: center; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05);">
+          <div class="team-card" style="background: #fff; border-radius: 20px; padding: 32px; display: flex; gap: 32px; align-items: center; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05);">
             <div style="width: 192px; height: 192px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); overflow: hidden; flex-shrink: 0;">
               <img src="assets/images/sebastian.jpg" alt="Lic. Sebastián Radiccioni" style="width: 154.9%; height: 160.95%; object-fit: cover; margin-left: -22.74%; margin-top: -32.32%; max-width: none;">
             </div>
@@ -325,7 +695,7 @@
           </div>
         </a>
         <!-- Magdalena -->
-        <div style="background: #fff; border-radius: 20px; padding: 32px; display: flex; gap: 32px; align-items: center; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05);">
+        <div class="team-card" style="background: #fff; border-radius: 20px; padding: 32px; display: flex; gap: 32px; align-items: center; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05);">
           <div style="width: 192px; height: 192px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); overflow: hidden; flex-shrink: 0;">
             <img src="assets/images/magdalena.jpg" alt="Lic. Magdalena Acquistapace" style="width: 146.38%; height: 183.51%; object-fit: cover; margin-left: -16.92%; margin-top: -46.4%; max-width: none;">
           </div>
@@ -344,7 +714,7 @@
     <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 64px;">
       <div>
         <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; color: #43474f; text-transform: uppercase; letter-spacing: 0.5px;">TESTIMONIOS</p>
-        <div style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px; margin-bottom: 20px;"></div>
+        <div class="accent-underline" style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px; margin-bottom: 20px;"></div>
         <h2 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 48px; line-height: 1.2; color: #001e40; letter-spacing: -0.96px; text-align: center;">Lo que dicen nuestros pacientes</h2>
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
@@ -401,13 +771,13 @@
       <div style="margin-bottom: 40px;">
         <div style="display: inline-block; margin-bottom: 24px;">
           <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 20px; color: #43474f; text-transform: uppercase; letter-spacing: 0.5px;">HORARIOS Y CONTACTO</p>
-          <div style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
+          <div class="accent-underline" style="height: 3px; width: 96px; background: #f5cf3d; margin-top: 8px;"></div>
         </div>
         <h2 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 48px; line-height: 1.2; color: #001e40; letter-spacing: -0.96px;">Horarios de Atención</h2>
       </div>
 
         <!-- Schedule table -->
-        <div style="background: #fff; border: 1px solid rgba(195,198,209,0.3); border-radius: 20px; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05); overflow: hidden;">
+        <div class="desk-schedule" style="background: #fff; border: 1px solid rgba(195,198,209,0.3); border-radius: 20px; box-shadow: 0 8px 40px -10px rgba(0,30,64,0.05); overflow: hidden;">
           <!-- Day headers -->
           <div style="display: grid; grid-template-columns: 52px repeat(6, 1fr); padding: 20px 24px 16px;">
             <div></div>
@@ -521,6 +891,16 @@
           </div>
         </div>
 
+        <!-- Mobile schedule list (shown only at <768px) -->
+        <div class="mob-schedule mob-only">
+          <div class="row"><span class="day">Lunes</span><span class="hours">08:00 - 12:00</span></div>
+          <div class="row"><span class="day">Martes</span><span class="hours">08:00 - 12:00 | 15:30 - 20:00</span></div>
+          <div class="row"><span class="day">Miércoles</span><span class="hours">08:00 - 12:00</span></div>
+          <div class="row"><span class="day">Jueves</span><span class="hours">08:00 - 12:00 | 14:00 - 20:00</span></div>
+          <div class="row"><span class="day">Viernes</span><span class="hours">08:00 - 12:00 | 14:00 - 16:00</span></div>
+          <div class="row"><span class="day">Sábado</span><span class="hours">08:00 - 12:00</span></div>
+        </div>
+
     </div>
   </section>
 
@@ -597,11 +977,17 @@
         <div style="flex-shrink: 0; display: flex; flex-direction: column; gap: 24px;">
           <img src="assets/icons/Logo_white.svg" alt="Axis" style="height: 80px; width: auto; object-fit: contain; object-position: left;">
           <div style="display: flex; gap: 16px; align-items: center;">
-            <a href="https://instagram.com/axis.uy" target="_blank" rel="noopener" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
-              <img src="assets/icons/icon-instagram.svg" alt="Instagram" style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
+            <a href="https://instagram.com/axis.uy" target="_blank" rel="noopener" aria-label="Instagram" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #D5E3FF; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2.25" y="2.25" width="15.5" height="15.5" rx="4.5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="14.6" cy="5.4" r="1.05" fill="currentColor"/>
+              </svg>
             </a>
-            <a href="https://wa.me/59899342137" target="_blank" rel="noopener" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
-              <img src="assets/icons/icon-wa-link.svg" alt="WhatsApp" style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
+            <a href="https://wa.me/59899342137" target="_blank" rel="noopener" aria-label="WhatsApp" style="border: 1px solid rgba(213,227,255,0.3); border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #D5E3FF; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 1.7c-4.58 0-8.3 3.72-8.3 8.3 0 1.46.38 2.87 1.1 4.12L1.7 18.3l4.27-1.08A8.3 8.3 0 0 0 18.3 10c0-2.22-.87-4.3-2.43-5.87A8.27 8.27 0 0 0 10 1.7Zm0 1.5c1.81 0 3.52.71 4.8 1.99A6.77 6.77 0 0 1 16.8 10c0 3.75-3.05 6.8-6.8 6.8a6.83 6.83 0 0 1-3.45-.94l-.24-.14-2.55.66.68-2.48-.16-.26A6.77 6.77 0 0 1 3.2 10c0-3.75 3.05-6.8 6.8-6.8Zm-3.07 3.55c-.13.01-.27.04-.39.1-.18.08-.7.45-.7 1.45 0 1 .72 1.96.82 2.1.1.13 1.4 2.18 3.45 3.04 1.71.72 2.06.58 2.43.55.38-.03 1.22-.5 1.4-.97.17-.48.17-.88.12-.97-.05-.08-.18-.13-.38-.22-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.5.65-.62.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.1-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.43-1.07-.6-1.46-.16-.39-.32-.34-.43-.34l-.36-.01Z" fill="currentColor"/>
+              </svg>
             </a>
           </div>
         </div>
@@ -629,6 +1015,38 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('mobHamburger');
+      var overlay = document.getElementById('mobOverlay');
+      var close = document.getElementById('mobClose');
+      if (!btn || !overlay) return;
+      function open() { overlay.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+      function shut() { overlay.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+      btn.addEventListener('click', open);
+      close.addEventListener('click', shut);
+      overlay.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', shut); });
+    })();
+
+    /* Scroll reveal: fade + slide up sections as they enter the viewport */
+    (function() {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || !('IntersectionObserver' in window)) return;
+      document.body.classList.add('js');
+      var targets = document.querySelectorAll('section:not(#hero), footer');
+      targets.forEach(function(el) { el.classList.add('reveal'); });
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      targets.forEach(function(el) { io.observe(el); });
+    })();
+  </script>
 
 </body>
 </html>
