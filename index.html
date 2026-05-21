@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axis — Rehabilitación y Movimiento Consciente</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/axis-blob.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,500;12..96,75..100,600&display=swap" rel="stylesheet">
@@ -25,7 +26,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: #43474f; background: #fff; overflow-x: hidden; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
     /* Mobile-only and desktop-only toggles */
     .mob-only { display: none; }
@@ -40,6 +41,7 @@
     }
 
     @media (max-width: 767px) {
+      html { scroll-padding-top: 80px; }
       /* === NAVBAR === */
       header { height: 80px !important; }
       header nav { padding: 0 24px !important; gap: 0 !important; }
@@ -155,8 +157,8 @@
       #agentes > div > div:first-child p { font-size: 15px !important; line-height: 1.55 !important; }
       #agentes > div > div:last-child { flex-direction: column !important; gap: 16px !important; }
       #agentes > div > div:last-child > div:first-child { flex-direction: column !important; gap: 16px !important; }
-      #agentes > div > div:last-child > div:first-child > div { height: 202px !important; border-radius: 10px !important; }
-      #agentes > div > div:last-child > div:last-child { height: 202px !important; align-self: stretch !important; border-radius: 10px !important; }
+      #agentes > div > div:last-child > div:first-child > div { width: 100% !important; height: auto !important; aspect-ratio: 303 / 202 !important; border-radius: 10px !important; }
+      #agentes > div > div:last-child > div:last-child { width: 100% !important; height: auto !important; aspect-ratio: 303 / 202 !important; align-self: stretch !important; border-radius: 10px !important; }
       /* Image files already include the yellow ribbon label baked in — hide the DOM label to avoid duplication. */
       #agentes .agente-label { display: none !important; }
 
@@ -559,17 +561,26 @@
         <!-- Two stacked images -->
         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
           <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0; position: relative;">
-            <img src="assets/images/Tens_image.jpg" alt="Electroterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <picture>
+              <source media="(max-width: 767px)" srcset="assets/images/Tens_mobile.jpg">
+              <img src="assets/images/Tens_image.jpg" alt="Electroterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            </picture>
             <span class="agente-label mob-only">Tens</span>
           </div>
           <div style="border-radius: 16px; overflow: hidden; height: 220px; flex-shrink: 0; position: relative;">
-            <img src="assets/images/Ultra_image.jpg" alt="Ultrasonido terapéutico" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <picture>
+              <source media="(max-width: 767px)" srcset="assets/images/Ultra_mobile.jpg">
+              <img src="assets/images/Ultra_image.jpg" alt="Ultrasonido terapéutico" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            </picture>
             <span class="agente-label mob-only">Ultrasonido</span>
           </div>
         </div>
         <!-- One large image -->
         <div style="flex: 1; border-radius: 16px; overflow: hidden; height: 300px; align-self: center; position: relative;">
-          <img src="assets/images/Magneto_image.jpg" alt="Magnetoterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/images/Magneto_mobile.jpg">
+            <img src="assets/images/Magneto_image.jpg" alt="Magnetoterapia" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+          </picture>
           <span class="agente-label mob-only">Magnetoterapia</span>
         </div>
       </div>
@@ -1036,6 +1047,22 @@
       document.body.classList.add('js');
       var targets = document.querySelectorAll('section:not(#hero), footer');
       targets.forEach(function(el) { el.classList.add('reveal'); });
+      var viewportH = window.innerHeight;
+      var deferred = [];
+      targets.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        // Sections already touching the viewport on load (common on tall mobile devices
+        // where the next section peeks below the hero) get their fade-in triggered now
+        // instead of going through the IntersectionObserver — the threshold may never be
+        // met if only a sliver is visible, leaving the content visibly blank.
+        if (rect.top < viewportH && rect.bottom > 0) {
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { el.classList.add('is-visible'); });
+          });
+        } else {
+          deferred.push(el);
+        }
+      });
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1043,8 +1070,8 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-      targets.forEach(function(el) { io.observe(el); });
+      }, { threshold: 0.02, rootMargin: '0px 0px -60px 0px' });
+      deferred.forEach(function(el) { io.observe(el); });
     })();
   </script>
 
